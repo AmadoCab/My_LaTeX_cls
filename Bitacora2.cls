@@ -16,9 +16,15 @@
 \RequirePackage{enumerate}
 \RequirePackage[spanish]{babel}
 \decimalpoint
+\RequirePackage{wasysym}
+\RequirePackage{clock}
+\RequirePackage[clock]{ifsym}
+\RequirePackage{tikz}
 
 % Remove identation
 \setlength{\parindent}{0pt}
+
+\definecolor{verdecito}{rgb}{0.0, 0.42, 0.24}
 
 % Maketitle commands
 \newcommand{\id}[1]{\def\@id{#1}}
@@ -40,18 +46,18 @@
 }
 
 % Rules
-\newcommand{\lmayor}{\rule{6.25in}{0.5mm}\\}
-\newcommand{\lmenor}{\rule{6.25in}{0.1mm}\\}
+\newcommand{\bline}{{\color{verdecito}\rule{\textwidth}{0.5mm}}\\}
+\newcommand{\sline}{{\color{verdecito}\rule{\textwidth}{0.1mm}}\\}
 
 % Binnacle records
 \newenvironment{registro}{
-  \newcommand{\fecha}[1]{\textbf{Fecha:}~##1}
-  \newcommand{\tiempo}[1]{\textbf{Tiempo:}~##1}
-  \newcommand{\estatus}[1]{\textbf{Estatus:}~##1}
+  \newcommand{\fecha}[1]{\cent~##1}
+  \newcommand{\tiempo}[1]{$\boldsymbol{\bigstar}$~##1}
+  \newcommand{\estatus}[1]{{\scriptsize\ClockFrametrue\ClockStyle=0\clock{3}{0}}~##1}
   \newcommand{\datos}[3]{
     \phantom{M}\\
     \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l @{\extracolsep{\fill}} l}
-    \fecha{##1} & \tiempo{##2} & \estatus{##3}
+    {\color{verdecito}\fecha{##1}} & {\color{verdecito}\tiempo{##2}} & {\color{verdecito}\estatus{##3}}
     \end{tabular*}\vspace{1em}\\
     \textbf{Descripción:}\\
   }
@@ -78,5 +84,10 @@
   \section*{#1}\vspace{-1.3em}
   \lmayor
 }
+
+\newcommand{\td}[3][]{\dfrac{\mathrm{d}^{#1}#2}{\mathrm{d}#3^{#1}}}
+\newcommand{\pd}[3][]{\dfrac{\partial^{#1}#2}{\partial#3^{#1}}}
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\diff}{\,\partial}
 
 %
