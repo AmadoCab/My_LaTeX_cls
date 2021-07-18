@@ -17,6 +17,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{siunitx}
 \RequirePackage{adforn}
 \RequirePackage{dsfont}
 \RequirePackage{tikz}
@@ -138,3 +139,6 @@
 \newcommand{\pd}[3][]{\dfrac{\partial^{#1}#2}{\partial#3^{#1}}}
 \newcommand{\dif}{\,\mathrm{d}}
 \newcommand{\diff}{\,\partial}
+\sisetup{
+  inter-unit-product=\ensuremath{\cdot},
+}
