@@ -1,4 +1,4 @@
-%
+%.
 
 % Preliminary declarations
 \ProvidesClass{Bitacora}[2021/02/04 V1 by Amado Cabrera]
